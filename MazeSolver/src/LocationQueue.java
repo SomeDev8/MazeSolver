@@ -1,27 +1,25 @@
 
 public class LocationQueue {
 
-	private int front;
-	private int rear;
-	private int nItems;
+	private LocationLinkList theList;
 
-	public LocationQueue() {
-		front = 0;
-		rear = -1;
-		nItems = 0;
+	public LocationQueue() 
+	{
+		theList = new LocationLinkList();
+	} 
+
+	public boolean isEmpty() 
+	{
+		return theList.isEmpty();
 	}
 
-	public void insert(int row, int column) {
-		Location location = new Location(row, column);
-		nItems++;
+	public void insert(int row, int column) 
+	{
+		theList.insertLast(row, column);
 	}
 
-	public boolean isEmpty() {
-		if (nItems == 0) {
-			return true;
-		} else {
-			return false;
-		}
+	public Location remove() 
+	{
+		return theList.deleteFirst();
 	}
 }
-
